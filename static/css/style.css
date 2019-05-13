@@ -1,0 +1,81 @@
+/* Move down content because we have a fixed navbar that is 3.5rem tall */
+body {
+    padding-top: 3.5rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-image: url("/static/img/ninja-wp.jpg");
+  }
+
+nav {
+    border-left: 20px solid black;
+}
+
+.row {
+    background-color:rgba(212, 211, 211, 0.8);
+    border-left: 20px solid darkgray;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.lightgrey {
+    color: lightgrey;
+}
+
+.spacer {
+    margin-right: 5px;
+}
+
+.col-sm-3 {
+    text-align: center;
+}
+
+h2 {
+    margin-top: 10px;
+}
+
+.place {
+    width: 200px;
+}
+
+.btn {
+    background-color: gold;
+    color: black;
+    border: 0;
+}
+
+.button-row {
+    padding-bottom: 20px;
+}
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}
+
+.win {
+    color: gold;
+    font-size: 14pt;
+    font-weight: bold;
+    background-color: blue;
+    padding: 5px;
+}
+
+.lose {
+    color: red;
+    font-size: 14pt;
+    font-weight: bold;
+    background-color: black;
+    padding: 5px;
+}
+
+.overflow {
+    background-color:rgba(15, 15, 15, 0.8);
+    border-left: 20px solid black;
+    padding-top: 10px;
+    height: 320px;
+    overflow: auto;
+}

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Ninja Gold Assignment for Coding Dojo Flask Fundamentals">
+    <meta name="author" content="Narciso Lobo and Bootstrap">
+    <link rel="icon" href="/static/img/favicon.ico">
+
+    <title>Ninja Gold</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="/">Ninja Gold</a>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active lightgrey">
+                    Can your ninja obtain 250 gold pieces in 15 moves or less?
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" action="/clear" method="POST">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active lightgrey spacer">
+                        Current Gold Pieces:
+                    </li>
+                </ul>
+                <input class="form-control mr-sm-2" type="text" name="current-gold" id="current-gold" value="{{current_gold}}">
+                <button type="submit" class="btn btn-secondary">RESET</button>
+            </form>
+        </div>
+    </nav>
+
+    <main role="main">
+
+        <div class="container-fluid">
+            <!-- Example row of columns -->
+            <div class="row">
+                <div class="col-sm-3">
+                    <h2>FARM</h2>
+                    <img class="place" src="/static/img/barn.png" alt="farm">
+                </div>
+                <div class="col-sm-3">
+                    <h2>CAVE</h2>
+                    <img class="place" src="/static/img/cave.png" alt="farm">
+                </div>
+                <div class="col-sm-3">
+                    <h2>HOUSE</h2>
+                    <img class="place" src="/static/img/home.png" alt="farm">
+                </div>
+                <div class="col-sm-3">
+                    <h2>CASINO</h2>
+                    <img class="place" src="/static/img/casino.png" alt="farm">
+                </div>
+            </div>
+            <div class="row button-row">
+                <div class="col-sm-3">
+                    <p>(earns 10-20 gold pcs.)</p>
+                    <form action="/process_money" method="POST">
+                        <input type="hidden" name="building" value="farm">
+                        <button type="submit" class="btn btn-secondary">FIND GOLD</button>
+                    </form>
+                </div>
+                <div class="col-sm-3">
+                    <p>(earns 5-10 gold pcs.)</p>
+                    <form action="/process_money" method="POST">
+                        <input type="hidden" name="building" value="cave">
+                        <button type="submit" class="btn btn-secondary">FIND GOLD</button>
+                    </form>
+                </div>
+                <div class="col-sm-3">
+                    <p>(earns 2-5 gold pcs.)</p>
+                    <form action="/process_money" method="POST">
+                        <input type="hidden" name="building" value="house">
+                        <button type="submit" class="btn btn-secondary">FIND GOLD</button>
+                    </form>
+                </div>
+                <div class="col-sm-3">
+                    <p>(earns/takes 0-50 gold pcs.)</p>
+                    <form action="/process_money" method="POST">
+                        <input type="hidden" name="building" value="casino">
+                        <button type="submit" class="btn btn-secondary">FIND GOLD</button>
+                    </form>
+                </div>
+            </div>
+        </div> <!-- /container -->
+
+    </main>
+
+    <div class="container-fluid overflow">
+        {% for activity in session['activities'] %}
+            {{activity|safe}}
+        {% endfor %}
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
